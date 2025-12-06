@@ -29,7 +29,7 @@ function generateProblem() {
     let runningTotal = 0;
 
     for (let i = 0; i < length; i++) {
-      // 30% chance for 2-digit, 70% chance for 3-digit
+      // 40% chance for 2-digit, 60% chance for 3-digit
       const isThreeDigit = Math.random() > 0.3; 
       let num = isThreeDigit 
         ? Math.floor(Math.random() * 900) + 100 
@@ -41,7 +41,7 @@ function generateProblem() {
       } else {
         const wantsToSubtract = Math.random() > 0.5;
         
-        if (wantsToSubtract) {
+        if (wantsToSubtract && (runningTotal - num >= 0)) {
             problemString += " - " + num;
             runningTotal -= num;
         } else {
