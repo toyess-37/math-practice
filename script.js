@@ -30,13 +30,14 @@ const generators = {
 	},
 
 	lcm: () => {
-		const a = rand(2, 9), b = rand(10, 99);
-		return {text: `LCM of ${a} and ${b}`, answer: lcm(a,b)};
+		const a = rand(2, 9);
+		const b = rand(10, 99);
+		return {text: `LCM (${a}, ${b})`, answer: lcm(a,b)};
 	},
 
 	modulo: () => {
 		const a = rand(10, 99);
-		const b = (Math.random() > 0.5) ? rand(100, 999) : rand(1000, 9999);
+		const b = rand(100, 999);
 		return {text: `${b} % ${a}`, answer: b%a};
 	},
 
@@ -124,7 +125,7 @@ function finishGame(success) {
 		resultText.className = "result-title text-success";
 		timeTakenDisplay.innerText = timeInSeconds;
 	} else {
-		input.value = currentSum;
+		input.value = currentAns;
 		input.classList.add('error');
 
 		resultText.innerText = "MISSED";
