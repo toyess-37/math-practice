@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Addition Subtraction Practice</title>
+	<title>Speed Math Practice</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
@@ -13,34 +13,44 @@
 <body>
 	<div class="app-container">
 			<div class="header">
-				<h1>3 digit addition/subtraction</h1>
+				<h1>Speed Math Practice</h1>
 			</div>
 
 			<div class="controls">
+				<div class="control-row">
 					<label>
+						Mode:
+						<select id="modeSelect" onchange="toggleLengthControl()">
+							<option value="mixed">Mixed Practice</option>
+							<option value="addsub">Add/Sub</option>
+							<option value="mult">Multiplication</option>
+							<option value="lcm">LCM</option>
+							<option value="modulo">Remainder</option>
+						</select>
+					</label>
+
+					<label id="lengthControl" class="hidden">
 						Length:
 						<select id="lengthSelect">
 							<option value="4">4 numbers</option>
 							<option value="5" selected>5 numbers</option>
 							<option value="6">6 numbers</option>
-							<option value="8">8 numbers</option>
 						</select>
 					</label>
-					<button onclick="generateProblem()" class="btn-primary">New Stream</button>
+				</div>
+
+				<button onclick="generateProblem()" class="btn-primary">New Stream</button>
 			</div>
 
-			<!-- Problem Display Area -->
 			<div id="problemDisplay" class="display-box">
 				Press 'New Stream'
 			</div>
 
-			<!-- Input Section -->
 			<div class="input-wrapper">
 				<input type="number" id="userAnswer" placeholder="Type answer..." min="0" autocomplete="off" oninput="checkInput()" disabled>
 				<div id="statusIndicator" class="status-icon"></div>
 			</div>
 
-			<!-- Results Area -->
 			<div id="feedback" class="feedback hidden">
 					<div id="resultText" class="result-title"></div>
 					<div class="stats">
@@ -51,7 +61,6 @@
 					</div>
 			</div>
 
-			<!-- Give Up Link -->
 			<div id="giveUpContainer" class="hidden">
 				<button onclick="giveUp()" class="btn-link">Give Up / Show Answer</button>
 			</div>
