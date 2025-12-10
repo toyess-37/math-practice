@@ -1,4 +1,4 @@
-let currentSum = 0;
+let currentAns = 0;
 let startTime = 0;
 let isGameActive = false;
 
