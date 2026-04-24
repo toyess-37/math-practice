@@ -30,8 +30,8 @@ const generators = {
 	},
 
 	lcm: () => {
-		const a = rand(2, 9);
-		const b = rand(10, 99);
+		const a = rand(2, 99);
+		const b = rand(10, 999);
 		return {text: `LCM (${a}, ${b})`, answer: lcm(a,b)};
 	},
 
